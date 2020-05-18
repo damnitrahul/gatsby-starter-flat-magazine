@@ -8,11 +8,11 @@ import { Link } from 'gatsby';
 function MobileHeader() {
   const [isDesktop, setDesktop] = useState(window.innerWidth > 768);
 
-  const updateMedia = () => {
-    setDesktop(window.innerWidth > 768);
-  };
-
   useEffect(() => {
+    const updateMedia = () => {
+      setDesktop(window.innerWidth > 768);
+    };
+
     window.addEventListener('resize', updateMedia);
     return () => window.removeEventListener('resize', updateMedia);
   });

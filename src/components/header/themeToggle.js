@@ -10,17 +10,20 @@ function ThemeToggle() {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    window.localStorage.setItem('color-mode', theme);
+    if (typeof window !== 'undefined')
+      window.localStorage.setItem('color-mode', theme);
   }, [theme]);
 
   const changeTheme = () => {
     setTheme((theme) => (theme === 'dark' ? 'light' : 'dark'));
     document.documentElement.classList.remove('theme-tansition');
     document.documentElement.classList.add('theme-tansition');
-    window.setTimeout(() => {
-      document.documentElement.classList.remove('theme-tansition');
-    }, 750);
-    window.localStorage.setItem('color-mode', theme);
+    if (typeof window !== 'undefined') {
+      window.setTimeout(() => {
+        document.documentElement.classList.remove('theme-tansition');
+      }, 750);
+      window.localStorage.setItem('color-mode', theme);
+    }
   };
 
   return (

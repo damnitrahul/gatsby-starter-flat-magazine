@@ -26,7 +26,7 @@ const FeaturedPostBox = styled.div`
     }
     h2 {
       span {
-        box-shadow: inset 0 -17px 0 #ff8b646b;
+        box-shadow: inset 0 -17px 0 var(--highlight);
       }
     }
   }

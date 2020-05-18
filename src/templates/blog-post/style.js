@@ -41,6 +41,7 @@ const PostImage = styled.div`
   padding: 2rem 0;
 `;
 const PostBody = styled.article`
+  padding-bottom: 2rem;
   h1 {
     font-size: 2.2rem;
   }
@@ -60,10 +61,10 @@ const PostBody = styled.article`
   }
   a {
     font-weight: 600;
-    box-shadow: inset 0 -2px 0 #ff8b646b;
+    box-shadow: inset 0 -2px 0 var(--highlight);
     transition: box-shadow 350ms ease;
     &:hover {
-      box-shadow: inset 0 -19px 0 #ff8b646b;
+      box-shadow: inset 0 -19px 0 var(--highlight);
     }
   }
   .gatsby-image-wrapper {
@@ -112,16 +113,110 @@ const PostBody = styled.article`
   }
 
   pre {
-    padding: 2rem !important;
+    padding: 1rem !important;
     background: #3d3d3d;
     color: #f8f8f8;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border-radius: 10px;
     font-family: 'Sen', monospace;
+    position: relative;
     code {
       font-family: 'Fira Mono', monospace;
+    }
+    &:after {
+      content: attr(data-language);
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      background: rgba(0, 0, 0, 0.1);
+      /* color: red; */
+    }
+  }
+`;
+const NextPrevBtn = styled.div`
+  display: block;
+  a {
+    box-shadow: none;
+    display: block;
+    padding: 1rem 0;
+    /* Arrow Animation from codepen https://codepen.io/aaroniker/pen/pojaBvb?editors=1100 */
+    --line: var(--orange);
+    text-decoration: none;
+    color: var(--color);
+    position: relative;
+
+    span {
+      background-image: linear-gradient(0deg, var(--line) 0%, var(--line) 100%);
+      background-position: 100% 100%;
+      background-repeat: no-repeat;
+      background-size: var(--background-size, 100%) 1px;
+      transition: background-size 0.2s linear var(--background-delay, 0.15s);
+      font-size: 1.1rem;
+      line-height: 22px;
+      transform: translateZ(0);
+    }
+    svg {
+      vertical-align: top;
+      display: inline;
+      line-height: 1;
+      width: 13px;
+      height: 27px;
+      position: relative;
+      left: -2px;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1px;
+      stroke: var(--line);
+      stroke-dasharray: 7.95 30;
+      stroke-dashoffset: var(--stroke-dashoffset, 46);
+      transition: stroke-dashoffset var(--stroke-duration, 0.15s)
+        var(--stroke-easing, linear) var(--stroke-delay, 0s);
+    }
+    &:hover {
+      --background-size: 0%;
+      --background-delay: 0s;
+      --stroke-dashoffset: 26;
+      --stroke-duration: 0.3s;
+      --stroke-easing: cubic-bezier(0.3, 1.5, 0.5, 1);
+      --stroke-delay: 0.195s;
+    }
+    /* Animation End */
+
+    span {
+      transition: box-shadow 350ms ease;
+      box-shadow: inset 0 -2px 0 var(--highlight);
+    }
+    &:hover {
+      box-shadow: none;
+      span {
+        box-shadow: inset 0 -19px 0 var(--highlight);
+      }
+    }
+
+    &.next {
+      margin-left: auto;
+      text-align: right;
+    }
+  }
+  ${media.md} {
+    display: flex;
+    a {
+      width: 50%;
     }
   }
 `;
 
-export { PostHeader, PostBody, AuthorDetails, PostImage };
+const MorePosts = styled.div`
+  margin-top: 2rem;
+`;
+export {
+  PostHeader,
+  PostBody,
+  AuthorDetails,
+  PostImage,
+  NextPrevBtn,
+  MorePosts
+};

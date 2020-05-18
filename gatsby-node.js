@@ -19,6 +19,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
         totalCount
         edges {
           node {
+            title
             slug {
               current
             }
@@ -28,15 +29,25 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  res.data.allSanityPost.edges.forEach((edge) => {
+  res.data.allSanityPost.edges.forEach((edge, i, arr) => {
     createPage({
       path: `/blog/${edge.node.slug.current}`,
       component: blogTemplate,
       context: {
-        slug: edge.node.slug.current
+        prev:
+          i === 0 ? arr[i + 2].node.slug.current : arr[i - 1].node.slug.current,
+        prevTitle: i === 0 ? arr[i + 2].node.title : arr[i - 1].node.title,
+        slug: edge.node.slug.current,
+        next:
+          i === arr.length - 1
+            ? arr[i - 2].node.slug.current
+            : arr[i + 1].node.slug.current,
+        nextTitle:
+          i === arr.length - 1 ? arr[i - 2].node.title : arr[i + 1].node.title
       }
     });
   });
+
   const pages = Math.ceil(res.data.allSanityPost.totalCount / 5);
   Array.from({ length: pages }).forEach((_, i) => {
     createPage({

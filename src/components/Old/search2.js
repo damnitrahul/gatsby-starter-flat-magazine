@@ -23,7 +23,7 @@ export default class SearchBox extends Component {
           placeholder="Search"
         />
         <div className="navbar-dropdown">
-          {this.state.results.map(page => (
+          {this.state.results.map((page) => (
             <Link
               className="navbar-item"
               key={page.id}
@@ -40,7 +40,7 @@ export default class SearchBox extends Component {
   getOrCreateIndex = () =>
     this.index ? this.index : Index.load(this.props.searchIndex);
 
-  search = evt => {
+  search = (evt) => {
     const query = evt.target.value;
     this.index = this.getOrCreateIndex();
     this.setState({

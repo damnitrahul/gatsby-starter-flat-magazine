@@ -1,7 +1,21 @@
 import styled from 'styled-components';
 
 const NavHeader = styled.header`
-  padding: 2rem 0;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  background-color: var(--white);
+  z-index: 99;
+  position: relative;
+  /* &:after {
+    content: '';
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 100px;
+    position: absolute;
+    background: red;
+  } */
 `;
 
 const NavBar = styled.header`
@@ -41,6 +55,7 @@ const SearchBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   label {
     border: none;
     border-radius: 5px;
@@ -53,7 +68,7 @@ const SearchBox = styled.div`
     &:focus,
     &:active,
     &:focus-within {
-      box-shadow: 0 0 2px 4px #ff8b643a;
+      box-shadow: 0 0 2px 4px var(--highlight-shadow);
     }
     input {
       font-size: 1.1rem;
@@ -61,13 +76,13 @@ const SearchBox = styled.div`
       border: none;
       background-color: transparent;
       height: 100%;
-      width: 0px;
-      transition: width 500ms ease;
+      width: ${({ open }) => (open ? 300 : 0)}px;
+      transition: width 300ms ease, padding 300ms ease;
+      padding: ${({ open }) => (open ? '0.5rem' : 0)};
+      color: var(--text-dark);
       &:focus,
       &:active {
         outline: none;
-        width: 300px;
-        padding: 0.5rem;
       }
     }
     svg {
@@ -86,6 +101,40 @@ const SearchBox = styled.div`
       svg {
         fill: var(--orange);
       }
+    }
+  }
+  &:focus-within {
+    div {
+      display: block;
+    }
+  }
+`;
+const SearchResults = styled.div`
+  position: absolute;
+  display: ${({ active }) => !active && 'none'};
+  z-index: 3;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: var(--white);
+  border-radius: 0 0 5px 5px;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 2px 6px var(--highlight-shadow);
+  a {
+    padding: 0.5rem 1rem;
+    display: block;
+    border-bottom: 1px solid var(--text-light);
+    min-height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    span {
+      /* margin: auto; */
+      display: block;
+    }
+    &:last-child {
+      border-bottom: none;
     }
   }
 `;
@@ -115,6 +164,13 @@ const ToggleIcon = styled.div`
       fill: var(--orange);
     }
   }
+  &.mobile {
+    svg {
+      display: block;
+      margin-right: auto;
+      width: 2rem;
+    }
+  }
 `;
 
 export {
@@ -124,5 +180,6 @@ export {
   SearchGroup,
   Logo,
   SearchBox,
-  ToggleIcon
+  ToggleIcon,
+  SearchResults
 };

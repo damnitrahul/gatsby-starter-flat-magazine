@@ -6,10 +6,18 @@ import BlockContent from '@sanity/block-content-to-react';
 import urlBuilder from '@sanity/image-url';
 import { BlogPostCols } from '../../components/common/style';
 import AdsSidebar from '../../components/ads/ads-sidebar';
-import { PostHeader, PostBody, AuthorDetails, PostImage } from './style';
+import {
+  PostHeader,
+  PostBody,
+  AuthorDetails,
+  PostImage,
+  NextPrevBtn,
+  MorePosts
+} from './style';
 import BlogPostImage from './blog-post-image';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { tomorrowNight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import SEO from '../../components/Old/seo';
 
 export const query = graphql`
   query($slug: String!) {
@@ -20,6 +28,7 @@ export const query = graphql`
         alt
         caption
         asset {
+          url
           fluid {
             ...GatsbySanityImageFluid
           }
@@ -57,7 +66,8 @@ const serializers = {
         <SyntaxHighlighter
           language={node.language || 'text'}
           style={tomorrowNight}
-          showLineNumbers
+          wrapLines={true}
+          data-language={node.language || 'text'}
         >
           {node.code}
         </SyntaxHighlighter>
@@ -80,7 +90,7 @@ const serializers = {
   }
 };
 
-function BlogPost({ data }) {
+function BlogPost({ data, pageContext }) {
   const post = data.sanityPost;
   const title = post.title;
   const authorName = post.authors[0].author.name;
@@ -88,8 +98,23 @@ function BlogPost({ data }) {
   const date = post.publishedAt;
   const postImg = post.mainImage.asset.fluid;
   const imgAlt = post.mainImage.alt;
+  const { next, prev, nextTitle, prevTitle } = pageContext;
+
   return (
     <Layout>
+      <SEO
+        title={title}
+        meta={[
+          {
+            property: 'twitter:image',
+            content: post.mainImage.asset.url
+          },
+          {
+            property: 'og:image',
+            content: post.mainImage.asset.url
+          }
+        ]}
+      />
       <PostHeader>
         <h1>{title}</h1>
         <AuthorDetails>
@@ -108,6 +133,27 @@ function BlogPost({ data }) {
             blocks={data.sanityPost._rawBody}
             serializers={serializers}
           ></BlockContent>
+          <MorePosts>
+            <h3>More Recents Posts</h3>
+            <NextPrevBtn>
+              {prev && (
+                <Link to={`/blog/${prev}`}>
+                  <span>{prevTitle}</span>
+                  <svg viewBox="0 0 13 20">
+                    <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                  </svg>
+                </Link>
+              )}
+              {next && (
+                <Link className="next" to={`/blog/${next}`}>
+                  <span>{nextTitle}</span>
+                  <svg viewBox="0 0 13 20">
+                    <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                  </svg>
+                </Link>
+              )}
+            </NextPrevBtn>
+          </MorePosts>
         </PostBody>
         <AdsSidebar />
       </BlogPostCols>

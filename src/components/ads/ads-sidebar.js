@@ -7,7 +7,7 @@ function AdsSidebar() {
     query {
       placeholderImage: file(relativePath: { eq: "ad-template.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 500) {
             ...GatsbyImageSharpFluid
           }
         }

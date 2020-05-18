@@ -30,7 +30,7 @@ const BlogPostBox = styled.div`
     &:hover {
       h2 {
         span {
-          box-shadow: inset 0 -10px 0 #ff8b646b;
+          box-shadow: inset 0 -10px 0 var(--highlight);
         }
       }
     }

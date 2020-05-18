@@ -6,7 +6,9 @@ import MobileSearch from './mobile-search';
 import Hamburger from './hamburger';
 import { Link } from 'gatsby';
 function MobileHeader() {
-  const [isDesktop, setDesktop] = useState(window.innerWidth > 768);
+  const [isDesktop, setDesktop] = useState(
+    typeof window !== 'undefined' ? window.innerWidth > 768 : false
+  );
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

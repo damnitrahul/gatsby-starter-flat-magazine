@@ -7,7 +7,9 @@ import { Link } from 'gatsby';
 import { Container } from '../common/style';
 
 function Header() {
-  const [isDesktop, setDesktop] = useState(window.innerWidth > 768);
+  const [isDesktop, setDesktop] = useState(
+    typeof window !== 'undefined' ? window.innerWidth > 768 : false
+  );
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

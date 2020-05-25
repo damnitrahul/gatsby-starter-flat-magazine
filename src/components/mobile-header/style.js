@@ -1,7 +1,11 @@
 import styled from 'styled-components';
+import { media } from '../../utils/breakpoints';
 
 const MobileHead = styled.header`
   padding: 1rem 0;
+  ${media.md} {
+    display: none;
+  }
 `;
 const MobileNavWrapper = styled.nav`
   background: var(--blur-bg);

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { media } from '../../utils/breakpoints';
 const NavHeader = styled.header`
   padding: 1rem 0;
   position: sticky;
@@ -16,6 +16,10 @@ const NavHeader = styled.header`
     position: absolute;
     background: red;
   } */
+  display: none;
+  ${media.md} {
+    display: block;
+  }
 `;
 
 const NavBar = styled.header`

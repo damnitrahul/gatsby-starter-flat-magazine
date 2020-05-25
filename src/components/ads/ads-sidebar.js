@@ -5,9 +5,9 @@ import Image from 'gatsby-image';
 function AdsSidebar() {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "ad-template.jpg" }) {
+      file(relativePath: { eq: "demo-ad-a.png" }) {
         childImageSharp {
-          fluid(maxWidth: 500) {
+          fluid {
             ...GatsbyImageSharpFluid
           }
         }
@@ -29,7 +29,7 @@ function AdsSidebar() {
           margin: '0 auto'
         }}
       >
-        <Image fluid={data.placeholderImage.childImageSharp.fluid} />
+        <Image fluid={data.file.childImageSharp.fluid} />
       </div>
     </AdContainer>
   );

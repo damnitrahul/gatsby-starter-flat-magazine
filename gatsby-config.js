@@ -49,7 +49,8 @@ module.exports = {
           }
         }
       }
-    }
+    },
+    'gatsby-plugin-styled-components'
     // 'gatsby-source-sanity-transform-images'
   ]
 };

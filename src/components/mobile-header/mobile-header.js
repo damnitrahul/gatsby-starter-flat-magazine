@@ -6,22 +6,22 @@ import MobileSearch from './mobile-search';
 import Hamburger from './hamburger';
 import { Link } from 'gatsby';
 function MobileHeader() {
-  // const [isDesktop, setDesktop] = useState(
-  //   typeof window !== 'undefined' ? window.innerWidth > 768 : false
-  // );
+  const [isDesktop, setDesktop] = useState(
+    typeof window !== 'undefined' ? window.innerWidth > 768 : false
+  );
 
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     const updateMedia = () => {
-  //       setDesktop(window.innerWidth > 768);
-  //     };
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const updateMedia = () => {
+        setDesktop(window.innerWidth > 768);
+      };
 
-  //     window.addEventListener('resize', updateMedia);
-  //     return () => window.removeEventListener('resize', updateMedia);
-  //   }
-  // });
+      window.addEventListener('resize', updateMedia);
+      return () => window.removeEventListener('resize', updateMedia);
+    }
+  });
 
-  // if (isDesktop) return null;
+  if (isDesktop) return null;
 
   return (
     <MobileHead>

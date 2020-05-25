@@ -7,20 +7,20 @@ import { Link } from 'gatsby';
 import { Container } from '../common/style';
 
 function Header() {
-  // const [isDesktop, setDesktop] = useState(
-  //   typeof window !== 'undefined' ? window.innerWidth > 768 : false
-  // );
+  const [isDesktop, setDesktop] = useState(
+    typeof window !== 'undefined' ? window.innerWidth > 768 : false
+  );
 
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     const updateMedia = () => {
-  //       setDesktop(window.innerWidth > 768);
-  //     };
-  //     window.addEventListener('resize', updateMedia);
-  //     return () => window.removeEventListener('resize', updateMedia);
-  //   }
-  // });
-  // if (!isDesktop) return null;
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const updateMedia = () => {
+        setDesktop(window.innerWidth > 768);
+      };
+      window.addEventListener('resize', updateMedia);
+      return () => window.removeEventListener('resize', updateMedia);
+    }
+  });
+  if (!isDesktop) return null;
 
   return (
     <NavHeader>

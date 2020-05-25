@@ -4,8 +4,8 @@ import { getFluidGatsbyImage } from 'gatsby-source-sanity';
 
 function BlogPostImage({ image }) {
   const sanityConfig = {
-    projectId: process.env.PROJECT_ID,
-    dataset: process.env.PROJECT_DATASET
+    projectId: process.env.GATSBY_PROJECT_ID,
+    dataset: process.env.GATSBY_PROJECT_DATASET
   };
   return (
     <Image

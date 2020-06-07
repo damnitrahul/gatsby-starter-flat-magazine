@@ -1,15 +1,7 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react'
 
-function Hamburger({ toggle, hamIconActive }) {
-  const [ham, setHam] = useState(false);
-
-  // return (
-  //   <div
-  //     onClick={toggle}
-  //     style={{ width: '30px', height: '30px', backgroundColor: '#000' }}
-  //   ></div>
-  // );
-
+function Hamburger({toggle, hamIconActive}) {
+  const [ham, setHam] = useState(false)
   return (
     <div onClick={toggle} role="button">
       <svg
@@ -17,7 +9,7 @@ function Hamburger({ toggle, hamIconActive }) {
         viewBox="5 5 90 90"
         width="35"
         onClick={() => setHam(!ham)}
-        style={{ display: 'block' }}
+        style={{display: 'block'}}
         fill="red"
       >
         <path
@@ -31,7 +23,7 @@ function Hamburger({ toggle, hamIconActive }) {
         />
       </svg>
     </div>
-  );
+  )
 }
 
-export default Hamburger;
+export default Hamburger

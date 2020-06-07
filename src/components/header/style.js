@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { media } from '../../utils/breakpoints';
+import styled from 'styled-components'
+import {media} from '../../utils/breakpoints'
 const NavHeader = styled.header`
   padding: 1rem 0;
   position: sticky;
@@ -20,13 +20,13 @@ const NavHeader = styled.header`
   ${media.md} {
     display: block;
   }
-`;
+`
 
 const NavBar = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
+`
 
 const NavGroup = styled.nav`
   display: flex;
@@ -46,14 +46,14 @@ const NavGroup = styled.nav`
       color: var(--text-dark);
     }
   }
-`;
+`
 
 const SearchGroup = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   list-style: none;
-`;
+`
 
 const SearchBox = styled.div`
   display: flex;
@@ -80,9 +80,9 @@ const SearchBox = styled.div`
       border: none;
       background-color: transparent;
       height: 100%;
-      width: ${({ open }) => (open ? 300 : 0)}px;
+      width: ${({open}) => (open ? 300 : 0)}px;
       transition: width 300ms ease, padding 300ms ease;
-      padding: ${({ open }) => (open ? '0.5rem' : 0)};
+      padding: ${({open}) => (open ? '0.5rem' : 0)};
       color: var(--text-dark);
       &:focus,
       &:active {
@@ -112,10 +112,10 @@ const SearchBox = styled.div`
       display: block;
     }
   }
-`;
+`
 const SearchResults = styled.div`
   position: absolute;
-  display: ${({ active }) => !active && 'none'};
+  display: ${({active}) => !active && 'none'};
   z-index: 3;
   left: 0;
   right: 0;
@@ -141,19 +141,18 @@ const SearchResults = styled.div`
       border-bottom: none;
     }
   }
-`;
+`
 
 const Logo = styled.div`
   max-width: 175px;
   img {
     width: 100%;
   }
-`;
+`
 
 const ToggleIcon = styled.div`
   width: 2.35rem;
-  margin-left: 1.5rem;
-  padding: 0.5rem;
+
   cursor: pointer;
   svg {
     fill: var(--text-dark);
@@ -175,7 +174,11 @@ const ToggleIcon = styled.div`
       width: 2rem;
     }
   }
-`;
+  ${media.md} {
+    margin-left: 1.5rem;
+    padding: 0.1rem;
+  }
+`
 
 export {
   NavHeader,
@@ -186,4 +189,4 @@ export {
   SearchBox,
   ToggleIcon,
   SearchResults
-};
+}

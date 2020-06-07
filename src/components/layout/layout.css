@@ -28,8 +28,27 @@ body {
   -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   background-color: var(--white);
+  -webkit-tap-highlight-color: transparent;
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: var(--white);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: var(--black);
+  border: 2px solid var(--white);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #2b333b;
+}
 h1,
 h2,
 h3,

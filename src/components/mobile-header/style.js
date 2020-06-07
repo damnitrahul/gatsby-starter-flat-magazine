@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-import { media } from '../../utils/breakpoints';
+import styled from 'styled-components'
+import {media} from '../../utils/breakpoints'
 
 const MobileHead = styled.header`
   padding: 1rem 0;
   ${media.md} {
     display: none;
   }
-`;
+`
 const MobileNavWrapper = styled.nav`
   background: var(--blur-bg);
   position: fixed;
@@ -32,7 +32,8 @@ const MobileNavWrapper = styled.nav`
     height: 100%;
     list-style: none;
     li {
-      a {
+      a,
+      div {
         padding: 1rem 3rem;
         display: block;
         font-size: 1.5rem;
@@ -45,10 +46,13 @@ const MobileNavWrapper = styled.nav`
   svg {
     width: 40px;
     height: 40px;
-    fill: var(--text-muted);
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    fill: var(--text-dark);
+
+    &.close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
   }
 
   &.active {
@@ -63,7 +67,7 @@ const MobileNavWrapper = styled.nav`
       }
     }
   }
-`;
+`
 const MobileLogo = styled.div`
   margin-bottom: 1rem;
   div {
@@ -73,9 +77,9 @@ const MobileLogo = styled.div`
       width: 100%;
     }
   }
-`;
-const MobileSearchWrapper = styled.div``;
-export { MobileHead, MobileNavWrapper, MobileSearchWrapper, MobileLogo };
+`
+const MobileSearchWrapper = styled.div``
+export {MobileHead, MobileNavWrapper, MobileSearchWrapper, MobileLogo}
 
 // Search Bar
 
@@ -107,7 +111,7 @@ const SearchBoxWrapper = styled.div`
       box-shadow: 0 0 2px 4px var(--highlight-shadow);
     }
   }
-`;
+`
 const SearchBox = styled.div`
   position: relative;
   display: flex;
@@ -127,14 +131,14 @@ const SearchBox = styled.div`
       padding: 0.5rem;
       background: var(--white);
       color: var(--text-dark);
-
+      font-size: 17px;
       &:focus {
         outline: none;
       }
     }
     svg {
       fill: var(--text-dark);
-      padding: 0;
+      padding-top: 3px;
       width: 35px;
       height: 35px;
       line-height: 2.5rem;
@@ -151,6 +155,6 @@ const SearchBox = styled.div`
       fill: var(--orange);
     }
   }
-`;
+`
 
-export { SearchBoxWrapper, SearchBox };
+export {SearchBoxWrapper, SearchBox}

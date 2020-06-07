@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { media } from '../../utils/breakpoints';
-import info from '../../images/icons/info.svg';
-import arrow from '../../images/icons/chevron.svg';
+import styled from 'styled-components'
+import {media} from '../../utils/breakpoints'
+import info from '../../images/icons/info.svg'
+import arrow from '../../images/icons/chevron.svg'
 
 const PostHeader = styled.div`
   padding: 2rem 0;
@@ -16,7 +16,7 @@ const PostHeader = styled.div`
       font-size: 4rem;
     }
   }
-`;
+`
 const AuthorDetails = styled.div`
   display: flex;
   justify-content: center;
@@ -32,14 +32,14 @@ const AuthorDetails = styled.div`
       font-weight: 400;
     }
   }
-`;
+`
 const PostImage = styled.div`
   .gatsby-image-wrapper {
     border-radius: 15px;
     max-height: 600px;
   }
   padding: 2rem 0;
-`;
+`
 const PostBody = styled.article`
   padding-bottom: 2rem;
   h1 {
@@ -69,7 +69,7 @@ const PostBody = styled.article`
   }
   .gatsby-image-wrapper {
     border-radius: 15px;
-    margin: 3rem 0;
+    margin: 1.5rem 0;
   }
   ul {
     padding: 2rem;
@@ -96,7 +96,7 @@ const PostBody = styled.article`
     background: #5855e03a;
     border-radius: 10px;
     border-left: 4px solid var(--two);
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     line-height: 1.4;
     position: relative;
     &:before {
@@ -134,7 +134,13 @@ const PostBody = styled.article`
       /* color: red; */
     }
   }
-`;
+
+  ${media.md} {
+    .gatsby-image-wrapper {
+      margin: 3rem 0;
+    }
+  }
+`
 const NextPrevBtn = styled.div`
   display: block;
   a {
@@ -207,16 +213,9 @@ const NextPrevBtn = styled.div`
       width: 50%;
     }
   }
-`;
+`
 
 const MorePosts = styled.div`
   margin-top: 2rem;
-`;
-export {
-  PostHeader,
-  PostBody,
-  AuthorDetails,
-  PostImage,
-  NextPrevBtn,
-  MorePosts
-};
+`
+export {PostHeader, PostBody, AuthorDetails, PostImage, NextPrevBtn, MorePosts}

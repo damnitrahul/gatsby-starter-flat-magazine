@@ -5,7 +5,7 @@ import Image from 'gatsby-image';
 function AdsSidebar() {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "demo-ad-a.png" }) {
+      file(relativePath: { eq: "demo-ad.png" }) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid

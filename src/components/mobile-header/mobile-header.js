@@ -1,28 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { MobileHead, MobileSearchWrapper, MobileLogo } from './style';
-import MobileNav from './mobile-nav';
-import logo from '../../images/logo.png';
-import MobileSearch from './mobile-search';
-import Hamburger from './hamburger';
-import { Link } from 'gatsby';
+import React from 'react'
+import {MobileHead, MobileLogo} from './style'
+import logo from '../../images/logo.png'
+import MobileSearch from './mobile-search'
+import {Link} from 'gatsby'
 function MobileHeader() {
-  // const [isDesktop, setDesktop] = useState(
-  //   typeof window !== 'undefined' ? window.innerWidth > 768 : false
-  // );
-
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     const updateMedia = () => {
-  //       setDesktop(window.innerWidth > 768);
-  //     };
-
-  //     window.addEventListener('resize', updateMedia);
-  //     return () => window.removeEventListener('resize', updateMedia);
-  //   }
-  // });
-
-  // if (isDesktop) return null;
-
   return (
     <MobileHead>
       <MobileLogo>
@@ -34,7 +15,25 @@ function MobileHeader() {
       </MobileLogo>
       <MobileSearch />
     </MobileHead>
-  );
+  )
 }
 
-export default MobileHeader;
+export default MobileHeader
+
+// Discarded Code to test Screen Size, Caused Weird Issue where no Header Will Show up.
+// const [isDesktop, setDesktop] = useState(
+//   typeof window !== 'undefined' ? window.innerWidth > 768 : false
+// );
+
+// useEffect(() => {
+//   if (typeof window !== 'undefined') {
+//     const updateMedia = () => {
+//       setDesktop(window.innerWidth > 768);
+//     };
+
+//     window.addEventListener('resize', updateMedia);
+//     return () => window.removeEventListener('resize', updateMedia);
+//   }
+// });
+
+// if (isDesktop) return null;

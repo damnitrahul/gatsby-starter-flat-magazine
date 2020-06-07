@@ -1,11 +1,5 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
-
-// You can delete this file if you're not using it
 import React from 'react';
+
 const InitialTheme = () => {
   let codeToRunOnClient = `
 (function() {
@@ -28,7 +22,6 @@ const InitialTheme = () => {
   const root = document.documentElement;
   root.setAttribute('data-theme', colorMode)
 })()`;
-  // eslint-disable-next-line react/no-danger
   return <script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />;
 };
 

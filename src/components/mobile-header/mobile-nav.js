@@ -10,13 +10,19 @@ function MobileNav({active, toggleNav}) {
     <MobileNavWrapper className={active && 'active'}>
       <ul>
         <li style={{transitionDelay: '250ms'}} onClick={toggleNav}>
-          <Link to="/"> Lastest </Link>
+          <Link to="/" activeClassName="active">
+            <span>Lastest</span>
+          </Link>
         </li>
         <li style={{transitionDelay: '300ms'}} onClick={toggleNav}>
-          <Link to="/blog"> Blog </Link>
+          <Link to="/blog" activeClassName="active">
+            <span>Blog</span>
+          </Link>
         </li>
         <li style={{transitionDelay: '350ms'}} onClick={toggleNav}>
-          <a href="#"> Contact </a>
+          <a href="#">
+            <span>Contact</span>
+          </a>
         </li>
         <li style={{transitionDelay: '400ms'}}>
           <ThemeToggle className="mobile" />

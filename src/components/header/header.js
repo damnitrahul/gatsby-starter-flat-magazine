@@ -19,10 +19,14 @@ function Header() {
             </Logo>
             <ul>
               <li>
-                <Link to="/">Latest</Link>
+                <Link to="/" activeClassName="active">
+                  <span>Latest</span>
+                </Link>
               </li>
               <li>
-                <Link to="/blog">Blog</Link>
+                <Link to="/blog" activeClassName="active">
+                  <span>Blog</span>
+                </Link>
               </li>
               <li>
                 <a
@@ -30,7 +34,7 @@ function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Contact
+                  <span>Contact</span>
                 </a>
               </li>
             </ul>

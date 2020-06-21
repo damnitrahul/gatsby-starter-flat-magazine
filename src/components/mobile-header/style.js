@@ -41,6 +41,12 @@ const MobileNavWrapper = styled.nav`
       }
       transform: translateX(-100%);
       transition: transform 450ms ease 0ms;
+      a.active {
+        span {
+          font-weight: 600;
+          box-shadow: inset 0 -4px 0 var(--highlight);
+        }
+      }
     }
   }
   svg {

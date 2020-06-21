@@ -90,6 +90,27 @@ const PostBody = styled.article`
     }
   }
 
+  ol {
+    padding: 2rem 0.4rem;
+    li {
+      font-size: 1.2rem;
+      line-height: 1.4;
+      padding: 0.2rem 0;
+      list-style-type: none;
+      counter-increment: step-counter;
+      &:before {
+        content: counter(step-counter);
+        margin-right: 10px;
+        font-size: 80%;
+        background-color: var(--blue);
+        color: white;
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 3px;
+      }
+    }
+  }
+
   blockquote {
     padding: 1rem 2rem;
     margin: 2rem 0;
@@ -132,12 +153,6 @@ const PostBody = styled.article`
       border-radius: 5px;
       background: rgba(0, 0, 0, 0.1);
       /* color: red; */
-    }
-  }
-
-  ${media.md} {
-    .gatsby-image-wrapper {
-      margin: 3rem 0;
     }
   }
 `

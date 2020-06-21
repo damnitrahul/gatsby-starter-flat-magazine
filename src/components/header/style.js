@@ -44,6 +44,20 @@ const NavGroup = styled.nav`
       font-size: 1.3rem;
       text-decoration: none;
       color: var(--text-dark);
+      &.active {
+        span {
+          font-weight: 600;
+          box-shadow: inset 0 -2px 0 var(--highlight);
+        }
+      }
+      span {
+        transition: box-shadow 350ms ease;
+      }
+      &:hover {
+        span {
+          box-shadow: inset 0 -24px 0 var(--highlight);
+        }
+      }
     }
   }
 `

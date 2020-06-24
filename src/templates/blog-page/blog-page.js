@@ -1,17 +1,18 @@
-import React from 'react';
-import BlogPosts from './blog-posts';
-import Layout from '../../components/layout/layout';
-import { BlogPostCols } from '../../components/common/style';
-import AdsSidebar from '../../components/ads/ads-sidebar';
-import { graphql } from 'gatsby';
-import Pagination from '../../components/pagination/pagination';
+import React from 'react'
+import BlogPosts from './blog-posts'
+import Layout from '../../components/layout/layout'
+import {BlogPostCols} from '../../components/common/style'
+import AdsSidebar from '../../components/ads/ads-sidebar'
+import {graphql} from 'gatsby'
+import Pagination from '../../components/pagination/pagination'
+import SEO from '../../components/Old/seo'
 
 export const query = graphql`
   query($skip: Int) {
     allSanityPost(
       skip: $skip
       limit: 5
-      sort: { fields: publishedAt, order: DESC }
+      sort: {fields: publishedAt, order: DESC}
     ) {
       edges {
         node {
@@ -27,7 +28,7 @@ export const query = graphql`
               }
             }
           }
-          _rawExcerpt(resolveReferences: { maxDepth: 10 })
+          _rawExcerpt(resolveReferences: {maxDepth: 10})
           authors {
             author {
               name
@@ -38,19 +39,20 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-function BlogPage({ data, pageContext }) {
-  const { current, pages } = pageContext;
+function BlogPage({data, pageContext}) {
+  const {current, pages} = pageContext
   return (
     <Layout>
+      <SEO title="Blog Archive" />
       <BlogPostCols>
         <BlogPosts data={data} />
         <AdsSidebar />
       </BlogPostCols>
       <Pagination currentPage={current} totalPage={pages} />
     </Layout>
-  );
+  )
 }
 
-export default BlogPage;
+export default BlogPage

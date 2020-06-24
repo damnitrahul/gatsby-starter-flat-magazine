@@ -31,6 +31,10 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+::selection {
+  background-color: #3d5afe26;
+}
+
 ::-webkit-scrollbar {
   width: 12px;
   background-color: var(--white);

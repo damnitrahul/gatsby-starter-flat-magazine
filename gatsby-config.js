@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Flatby`,
+    title: `Flatsby`,
     description: `A Blog Theme for Gatsby. Using Sanity.io as backend.`,
     author: `@damnitrahul`
   },
@@ -24,7 +24,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
+        icon: `src/images/favicon.png` // This path is relative to the root of the site.
       }
     },
     {
@@ -44,8 +44,8 @@ module.exports = {
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           SanityPost: {
-            title: (node) => node.title,
-            slug: (node) => node.slug.current
+            title: node => node.title,
+            slug: node => node.slug.current
           }
         }
       }
@@ -53,4 +53,4 @@ module.exports = {
     'gatsby-plugin-styled-components'
     // 'gatsby-source-sanity-transform-images'
   ]
-};
+}

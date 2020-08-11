@@ -1,8 +1,8 @@
-import React from 'react';
-import { FooterContainer } from './style';
-import { Container } from '../common/style';
-import icon from '../../images/icons/icons.svg';
-import { Link } from 'gatsby';
+import React from 'react'
+import {FooterContainer} from './style'
+import {Container} from '../common/style'
+import icon from '../../images/icons/icons.svg'
+import {Link} from 'gatsby'
 
 function Footer() {
   return (
@@ -64,7 +64,7 @@ function Footer() {
         </div>
       </Container>
     </FooterContainer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

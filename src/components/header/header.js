@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import Search from './search'
 import ThemeToggle from './themeToggle'
 import {NavHeader, NavBar, NavGroup, Logo, SearchGroup} from './style'
@@ -50,19 +50,3 @@ function Header() {
 }
 
 export default Header
-
-// Discarded Code to test Screen Size, Caused Weird Issue where no Header Will Show up.
-// const [isDesktop, setDesktop] = useState(
-//   typeof window !== 'undefined' ? window.innerWidth > 768 : false
-// );
-
-// useEffect(() => {
-//   if (typeof window !== 'undefined') {
-//     const updateMedia = () => {
-//       setDesktop(window.innerWidth > 768);
-//     };
-//     window.addEventListener('resize', updateMedia);
-//     return () => window.removeEventListener('resize', updateMedia);
-//   }
-// });
-// if (!isDesktop) return null;

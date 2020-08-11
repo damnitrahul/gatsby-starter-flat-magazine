@@ -1,12 +1,12 @@
-import React from 'react';
-import Header from '../header/header';
-import Footer from '../footer/footer';
-import './layout.css';
-import { Container } from '../common/style';
-import MobileHeader from '../mobile-header/mobile-header';
-import { Helmet } from 'react-helmet';
+import React from 'react'
+import Header from '../header/header'
+import Footer from '../footer/footer'
+import './layout.css'
+import {Container} from '../common/style'
+import MobileHeader from '../mobile-header/mobile-header'
+import {Helmet} from 'react-helmet'
 
-function Layout({ children }) {
+function Layout({children}) {
   return (
     <>
       <Helmet />
@@ -15,7 +15,7 @@ function Layout({ children }) {
       <Container>{children}</Container>
       <Footer />
     </>
-  );
+  )
 }
 
-export default Layout;
+export default Layout

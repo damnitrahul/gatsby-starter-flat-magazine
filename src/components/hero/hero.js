@@ -1,15 +1,15 @@
-import React from 'react';
-import FeaturedPost from './featured-post';
-import { useStaticQuery, graphql } from 'gatsby';
-import { FeaturedPostGrid } from './style';
+import React from 'react'
+import FeaturedPost from './featured-post'
+import {useStaticQuery, graphql} from 'gatsby'
+import {FeaturedPostGrid} from './style'
 
 function Hero() {
   const data = useStaticQuery(graphql`
     query {
       allSanityPost(
-        filter: { featured: { eq: true } }
+        filter: {featured: {eq: true}}
         limit: 4
-        sort: { fields: publishedAt, order: DESC }
+        sort: {fields: publishedAt, order: DESC}
       ) {
         edges {
           node {
@@ -24,7 +24,7 @@ function Hero() {
                 }
               }
             }
-            _rawExcerpt(resolveReferences: { maxDepth: 10 })
+            _rawExcerpt(resolveReferences: {maxDepth: 10})
             authors {
               author {
                 name
@@ -35,11 +35,11 @@ function Hero() {
         }
       }
     }
-  `);
+  `)
 
   return (
     <FeaturedPostGrid>
-      {data.allSanityPost.edges.map((edge) => (
+      {data.allSanityPost.edges.map(edge => (
         <FeaturedPost
           title={edge.node.title}
           slug={edge.node.slug.current}
@@ -51,7 +51,7 @@ function Hero() {
         />
       ))}
     </FeaturedPostGrid>
-  );
+  )
 }
 
-export default Hero;
+export default Hero

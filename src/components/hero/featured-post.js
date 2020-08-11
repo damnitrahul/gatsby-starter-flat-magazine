@@ -1,10 +1,10 @@
-import React from 'react';
-import { FeaturedPostBox } from './style';
-import Image from 'gatsby-image';
-import { Link } from 'gatsby';
-import BlockContent from '@sanity/block-content-to-react';
+import React from 'react'
+import {FeaturedPostBox} from './style'
+import Image from 'gatsby-image'
+import {Link} from 'gatsby'
+import BlockContent from '@sanity/block-content-to-react'
 
-function FeaturedPost({ image, title, excerpt, author, date, fluid, slug }) {
+function FeaturedPost({image, title, excerpt, author, date, fluid, slug}) {
   return (
     <FeaturedPostBox>
       <Link to={`/blog/${slug}`}>
@@ -18,7 +18,7 @@ function FeaturedPost({ image, title, excerpt, author, date, fluid, slug }) {
         </div>
       </Link>
     </FeaturedPostBox>
-  );
+  )
 }
 
-export default FeaturedPost;
+export default FeaturedPost

@@ -1,14 +1,14 @@
-import styled from 'styled-components';
-import { media } from '../../utils/breakpoints';
+import styled from 'styled-components'
+import {media} from '../../utils/breakpoints'
 
 const Container = styled.div`
-  max-width: ${(props) => props.width || '1240px'};
+  max-width: ${props => props.width || '1240px'};
   padding-right: 16px;
   padding-left: 16px;
   margin-right: auto;
   margin-left: auto;
   width: 100%;
-`;
+`
 
 const BlogPostCols = styled.div`
   & > div:last-child {
@@ -22,6 +22,6 @@ const BlogPostCols = styled.div`
       display: block;
     }
   }
-`;
+`
 
-export { Container, BlogPostCols };
+export {Container, BlogPostCols}

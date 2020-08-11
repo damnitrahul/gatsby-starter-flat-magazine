@@ -5,13 +5,13 @@ import {BlogPostCols} from '../../components/common/style'
 import AdsSidebar from '../../components/ads/ads-sidebar'
 import {graphql} from 'gatsby'
 import Pagination from '../../components/pagination/pagination'
-import SEO from '../../components/Old/seo'
+import SEO from '../../components/seo/seo'
 
 export const query = graphql`
   query($skip: Int) {
     allSanityPost(
       skip: $skip
-      limit: 5
+      limit: 10
       sort: {fields: publishedAt, order: DESC}
     ) {
       edges {

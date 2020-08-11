@@ -1,5 +1,5 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-const LatestPostGroup = styled.section``;
+const LatestPostGroup = styled.section``
 
-export { LatestPostGroup };
+export {LatestPostGroup}

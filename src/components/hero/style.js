@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { media } from '../../utils/breakpoints';
+import styled from 'styled-components'
+import {media} from '../../utils/breakpoints'
 
 const FeaturedPostBox = styled.div`
   .gatsby-image-wrapper {
@@ -36,7 +36,7 @@ const FeaturedPostBox = styled.div`
       font-size: 1.7rem;
     }
   }
-`;
+`
 
 const FeaturedPostGrid = styled.section`
   padding-bottom: 2rem;
@@ -64,6 +64,6 @@ const FeaturedPostGrid = styled.section`
       grid-area: four;
     }
   }
-`;
+`
 
-export { FeaturedPostBox, FeaturedPostGrid };
+export {FeaturedPostBox, FeaturedPostGrid}

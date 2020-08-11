@@ -134,9 +134,10 @@ const PostBody = styled.article`
   }
 
   pre {
-    padding: 1rem !important;
+    padding: 2.3rem 1rem 1rem 1rem !important;
     background: #3d3d3d;
     color: #f8f8f8;
+    line-height: 1.5;
     font-size: 1rem;
     border-radius: 10px;
     font-family: 'Sen', monospace;
@@ -147,8 +148,8 @@ const PostBody = styled.article`
     &:after {
       content: attr(data-language);
       position: absolute;
-      right: 0;
-      bottom: 0;
+      left: 0;
+      top: 0;
       padding: 0.3rem 0.6rem;
       border-radius: 5px;
       background: rgba(0, 0, 0, 0.1);

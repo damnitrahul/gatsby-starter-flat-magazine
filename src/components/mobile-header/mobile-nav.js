@@ -9,18 +9,34 @@ function MobileNav({active, toggleNav}) {
   return (
     <MobileNavWrapper className={active && 'active'}>
       <ul>
-        <li style={{transitionDelay: '250ms'}} onClick={toggleNav}>
-          <Link to="/" activeClassName="active">
+        <li style={{transitionDelay: '250ms'}}>
+          <Link
+            to="/"
+            activeClassName="active"
+            onClick={toggleNav}
+            onKeyPress={toggleNav}
+          >
             <span>Lastest</span>
           </Link>
         </li>
-        <li style={{transitionDelay: '300ms'}} onClick={toggleNav}>
-          <Link to="/blog" activeClassName="active">
+        <li style={{transitionDelay: '300ms'}}>
+          <Link
+            to="/blog"
+            activeClassName="active"
+            onClick={toggleNav}
+            onKeyPress={toggleNav}
+          >
             <span>Blog</span>
           </Link>
         </li>
-        <li style={{transitionDelay: '350ms'}} onClick={toggleNav}>
-          <a href="#">
+        <li style={{transitionDelay: '350ms'}}>
+          <a
+            href="https://damnitrahul.com/#contact"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={toggleNav}
+            onKeyPress={toggleNav}
+          >
             <span>Contact</span>
           </a>
         </li>
@@ -28,7 +44,7 @@ function MobileNav({active, toggleNav}) {
           <ThemeToggle className="mobile" />
         </li>
       </ul>
-      <div onClick={toggleNav}></div>
+      <div onClick={toggleNav} aria-hidden></div>
       <svg viewBox="0 0 100 100" className="close" onClick={toggleNav}>
         <use href={icon + '#close'} />
       </svg>

@@ -7,15 +7,6 @@ const NavHeader = styled.header`
   background-color: var(--white);
   z-index: 99;
   position: relative;
-  /* &:after {
-    content: '';
-    left: 0;
-    right: 0;
-    top: 100%;
-    height: 100px;
-    position: absolute;
-    background: red;
-  } */
   display: none;
   ${media.md} {
     display: block;

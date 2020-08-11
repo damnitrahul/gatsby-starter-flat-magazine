@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { media } from '../../utils/breakpoints';
+import styled from 'styled-components'
+import {media} from '../../utils/breakpoints'
 
 const FooterContainer = styled.footer`
   div.top-footer {
@@ -70,5 +70,5 @@ const FooterContainer = styled.footer`
       }
     }
   }
-`;
-export { FooterContainer };
+`
+export {FooterContainer}

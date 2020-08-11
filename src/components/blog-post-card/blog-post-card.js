@@ -1,9 +1,9 @@
-import React from 'react';
-import { BlogPostBox } from './style';
-import Image from 'gatsby-image';
-import { Link } from 'gatsby';
-import BlockContent from '@sanity/block-content-to-react';
-function BlogPostCard({ title, excerpt, author, date, fluid, slug }) {
+import React from 'react'
+import {BlogPostBox} from './style'
+import Image from 'gatsby-image'
+import {Link} from 'gatsby'
+import BlockContent from '@sanity/block-content-to-react'
+function BlogPostCard({title, excerpt, author, date, fluid, slug}) {
   return (
     <BlogPostBox>
       <Link to={`/blog/${slug}`}>
@@ -21,7 +21,7 @@ function BlogPostCard({ title, excerpt, author, date, fluid, slug }) {
         </div>
       </Link>
     </BlogPostBox>
-  );
+  )
 }
 
-export default BlogPostCard;
+export default BlogPostCard

@@ -117,13 +117,9 @@ strong {
 dfn {
   font-style: italic;
 }
-h1 {
-}
 mark {
   background-color: #ff0;
   color: #000;
-}
-small {
 }
 sub,
 sup {
@@ -148,8 +144,6 @@ kbd,
 pre,
 samp {
   font-family: monospace, monospace;
-}
-figure {
 }
 hr {
   box-sizing: content-box;

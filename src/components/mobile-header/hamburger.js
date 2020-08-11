@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 function Hamburger({toggle, hamIconActive}) {
   const [ham, setHam] = useState(false)
   return (
-    <div onClick={toggle} role="button">
+    <div onClick={toggle} role="button" tabIndex="0" onKeyPress={toggle}>
       <svg
         className={`ham hamRotate180 ham5 ${hamIconActive && 'active'}`}
         viewBox="5 5 90 90"

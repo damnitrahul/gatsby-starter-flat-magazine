@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { MobileSearchWrapper, SearchBoxWrapper, SearchBox } from './style';
-import { SearchResults } from '../header/style';
-import Hamburger from './hamburger';
-import icon from '../../images/icons/icons.svg';
-import useToggle from '../../hooks/useToggle';
-import { graphql, useStaticQuery, Link } from 'gatsby';
-import { Index } from 'elasticlunr';
-import MobileNav from './mobile-nav';
+import React, {useState, useEffect} from 'react'
+import {MobileSearchWrapper, SearchBoxWrapper, SearchBox} from './style'
+import {SearchResults} from '../header/style'
+import Hamburger from './hamburger'
+import icon from '../../images/icons/icons.svg'
+import {graphql, useStaticQuery, Link} from 'gatsby'
+import {Index} from 'elasticlunr'
+import MobileNav from './mobile-nav'
 function MobileSearch() {
   const data = useStaticQuery(graphql`
     query {
@@ -14,47 +13,47 @@ function MobileSearch() {
         index
       }
     }
-  `);
+  `)
 
-  const [isOpen, setOpen] = useState(false);
-  const [navOpen, setNavOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false)
+  const [navOpen, setNavOpen] = useState(false)
   const [state, setState] = useState({
     query: ``,
     results: [],
     isActive: false
-  });
+  })
 
   useEffect(() => {
-    document.documentElement.style.overflowY = navOpen ? 'hidden' : 'auto';
-  }, [navOpen]);
+    document.documentElement.style.overflowY = navOpen ? 'hidden' : 'auto'
+  }, [navOpen])
 
   useEffect(() => {
-    setState({ query: ``, results: [], isActive: false });
-  }, [isOpen]);
+    setState({query: ``, results: [], isActive: false})
+  }, [isOpen])
 
-  let index = null;
+  let index = null
   const getOrCreateIndex = () =>
-    index ? index : Index.load(data.siteSearchIndex.index);
+    index ? index : Index.load(data.siteSearchIndex.index)
 
-  const search = (evt) => {
-    const query = evt.target.value;
-    index = getOrCreateIndex();
+  const search = evt => {
+    const query = evt.target.value
+    index = getOrCreateIndex()
     setState({
       query,
       // Query the index with search string to get an [] of IDs
       results: index
-        .search(query, { expand: true }) // Accept partial matches
+        .search(query, {expand: true}) // Accept partial matches
         // Map over each ID and return the full document
-        .map(({ ref }) => index.documentStore.getDoc(ref)),
+        .map(({ref}) => index.documentStore.getDoc(ref)),
       isActive: !!query
-    });
-  };
+    })
+  }
 
   const handleToggle = () => {
-    if (isOpen) return setOpen(false);
-    if (navOpen) return setNavOpen(false);
-    return setNavOpen(true);
-  };
+    if (isOpen) return setOpen(false)
+    if (navOpen) return setNavOpen(false)
+    return setNavOpen(true)
+  }
 
   return (
     <MobileSearchWrapper>
@@ -66,7 +65,6 @@ function MobileSearch() {
               type="text"
               name="search"
               id="search"
-              autoComplete="off"
               placeholder="Search for posts..."
               value={state.query}
               onChange={search}
@@ -78,7 +76,7 @@ function MobileSearch() {
             </svg>
           </label>
           <SearchResults active={state.isActive}>
-            {state.results.map((page) => (
+            {state.results.map(page => (
               <Link
                 className="navbar-item"
                 key={page.id}
@@ -93,7 +91,7 @@ function MobileSearch() {
       </SearchBoxWrapper>
       <MobileNav active={navOpen} toggleNav={handleToggle} />
     </MobileSearchWrapper>
-  );
+  )
 }
 
-export default MobileSearch;
+export default MobileSearch

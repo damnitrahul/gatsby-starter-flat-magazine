@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
-import { Index } from 'elasticlunr';
-import { SearchBox, SearchResults } from './style';
-import icon from '../../images/icons/icons.svg';
+import React, {useState} from 'react'
+import {graphql, useStaticQuery, Link} from 'gatsby'
+import {Index} from 'elasticlunr'
+import {SearchBox, SearchResults} from './style'
+import icon from '../../images/icons/icons.svg'
 
 function Search() {
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false)
   const [state, setState] = useState({
     query: ``,
     results: [],
     isActive: false
-  });
+  })
 
   const data = useStaticQuery(graphql`
     query {
@@ -18,34 +18,34 @@ function Search() {
         index
       }
     }
-  `);
+  `)
 
-  let index = null;
+  let index = null
   const getOrCreateIndex = () =>
-    index ? index : Index.load(data.siteSearchIndex.index);
+    index ? index : Index.load(data.siteSearchIndex.index)
 
-  const search = (evt) => {
-    const query = evt.target.value;
-    index = getOrCreateIndex();
+  const search = evt => {
+    const query = evt.target.value
+    index = getOrCreateIndex()
     setState({
       query,
       // Query the index with search string to get an [] of IDs
       results: index
-        .search(query, { expand: true }) // Accept partial matches
+        .search(query, {expand: true}) // Accept partial matches
         // Map over each ID and return the full document
-        .map(({ ref }) => index.documentStore.getDoc(ref)),
+        .map(({ref}) => index.documentStore.getDoc(ref)),
       isActive: !!query
-    });
-  };
-  const handleSearchInput = (e) => {
+    })
+  }
+  const handleSearchInput = e => {
     if (e.target.value === '') {
-      setOpen(false);
+      setOpen(false)
     }
-    setState((st) => ({
+    setState(st => ({
       ...st,
       isActive: false
-    }));
-  };
+    }))
+  }
 
   return (
     <SearchBox open={isOpen}>
@@ -66,7 +66,7 @@ function Search() {
         />
       </label>
       <SearchResults active={state.isActive}>
-        {state.results.map((page) => (
+        {state.results.map(page => (
           <Link
             className="navbar-item"
             key={page.id}
@@ -78,7 +78,7 @@ function Search() {
         ))}
       </SearchResults>
     </SearchBox>
-  );
+  )
 }
 
-export default Search;
+export default Search

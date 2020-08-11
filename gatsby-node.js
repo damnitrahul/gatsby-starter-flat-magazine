@@ -5,13 +5,13 @@
  */
 
 // You can delete this file if you're not using it
-const path = require('path');
-module.exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
-  const blogTemplate = path.resolve('./src/templates/blog-post/blog-post.js');
+const path = require('path')
+module.exports.createPages = async ({graphql, actions}) => {
+  const {createPage} = actions
+  const blogTemplate = path.resolve('./src/templates/blog-post/blog-post.js')
   const blogPageTemplate = path.resolve(
     './src/templates/blog-page/blog-page.js'
-  );
+  )
 
   const res = await graphql(`
     query MyQuery {
@@ -27,7 +27,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `);
+  `)
 
   res.data.allSanityPost.edges.forEach((edge, i, arr) => {
     createPage({
@@ -45,19 +45,19 @@ module.exports.createPages = async ({ graphql, actions }) => {
         nextTitle:
           i === arr.length - 1 ? arr[i - 2].node.title : arr[i + 1].node.title
       }
-    });
-  });
+    })
+  })
 
-  const pages = Math.ceil(res.data.allSanityPost.totalCount / 5);
-  Array.from({ length: pages }).forEach((_, i) => {
+  const pages = Math.ceil(res.data.allSanityPost.totalCount / 10)
+  Array.from({length: pages}).forEach((_, i) => {
     createPage({
       path: i === 0 ? `/blog` : `/blog/${i + 1}`,
       component: blogPageTemplate,
       context: {
-        skip: i * 5,
+        skip: i * 10,
         current: i + 1,
         pages: pages
       }
-    });
-  });
-};
+    })
+  })
+}

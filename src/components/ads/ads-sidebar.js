@@ -1,11 +1,14 @@
-import React from 'react';
-import { AdContainer } from './style';
-import { useStaticQuery, graphql } from 'gatsby';
-import Image from 'gatsby-image';
+import React from 'react'
+import {AdContainer} from './style'
+import {useStaticQuery, graphql} from 'gatsby'
+import Image from 'gatsby-image'
+
+// Sidebar Ad Component
+
 function AdsSidebar() {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "demo-ad.png" }) {
+      file(relativePath: {eq: "demo-ad.png"}) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid
@@ -13,7 +16,7 @@ function AdsSidebar() {
         }
       }
     }
-  `);
+  `)
 
   return (
     <AdContainer>
@@ -32,7 +35,7 @@ function AdsSidebar() {
         <Image fluid={data.file.childImageSharp.fluid} />
       </div>
     </AdContainer>
-  );
+  )
 }
 
-export default AdsSidebar;
+export default AdsSidebar

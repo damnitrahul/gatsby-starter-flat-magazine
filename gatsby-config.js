@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Flatsby`,
+    title: `Flat Magazine`,
     description: `A Blog Theme for Gatsby. Using Sanity.io as backend.`,
-    author: `@damnitrahul`
+    author: `@damnitrahul`,
+    siteURL: 'https://blog.damnitrahul.com/',
+    siteUrl: 'https://blog.damnitrahul.com/'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -30,7 +32,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-sanity',
       options: {
-        projectId: process.env.GATSBY_PROJECT_ID,
+        projectId: process.env.GATSBY_PROJECT_ID, // Put your credentials
         dataset: process.env.GATSBY_PROJECT_DATASET,
         token: process.env.GATSBY_MY_SANITY_TOKEN
       }
@@ -50,7 +52,19 @@ module.exports = {
         }
       }
     },
-    'gatsby-plugin-styled-components'
-    // 'gatsby-source-sanity-transform-images'
+    {
+      resolve: 'gatsby-plugin-page-progress',
+      options: {
+        includePaths: [{regex: '^/blog'}],
+        height: 3,
+        prependToBody: false,
+        color: `#fd413c`,
+        footerHeight: 500
+      }
+    },
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-robots-txt'
+    // 'gatsby-source-sanity-transform-images' // Plugin to download images locally on server  to save sanity bandwidth
   ]
 }

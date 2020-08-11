@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { media } from '../../utils/breakpoints';
+import styled from 'styled-components'
+import {media} from '../../utils/breakpoints'
 
 const BlogPostBox = styled.div`
   margin: 2rem 0;
@@ -56,6 +56,6 @@ const BlogPostBox = styled.div`
       }
     }
   }
-`;
+`
 
-export { BlogPostBox };
+export {BlogPostBox}

@@ -1,14 +1,14 @@
-import React from 'react';
-import { LatestPostGroup } from './style';
-import { useStaticQuery, graphql } from 'gatsby';
-import BlogPostCard from '../blog-post-card/blog-post-card';
+import React from 'react'
+import {LatestPostGroup} from './style'
+import {useStaticQuery, graphql} from 'gatsby'
+import BlogPostCard from '../blog-post-card/blog-post-card'
 
 function LatestPosts() {
   const data = useStaticQuery(graphql`
     query {
       allSanityPost(
-        sort: { fields: publishedAt, order: DESC }
-        filter: { featured: { ne: true } }
+        sort: {fields: publishedAt, order: DESC}
+        filter: {featured: {ne: true}}
       ) {
         edges {
           node {
@@ -24,7 +24,7 @@ function LatestPosts() {
                 }
               }
             }
-            _rawExcerpt(resolveReferences: { maxDepth: 10 })
+            _rawExcerpt(resolveReferences: {maxDepth: 10})
             authors {
               author {
                 name
@@ -35,10 +35,10 @@ function LatestPosts() {
         }
       }
     }
-  `);
+  `)
   return (
     <LatestPostGroup>
-      {data.allSanityPost.edges.map((edge) => (
+      {data.allSanityPost.edges.map(edge => (
         <BlogPostCard
           title={edge.node.title}
           slug={edge.node.slug.current}
@@ -51,7 +51,7 @@ function LatestPosts() {
         />
       ))}
     </LatestPostGroup>
-  );
+  )
 }
 
-export default LatestPosts;
+export default LatestPosts

@@ -2,31 +2,39 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {Helmet} from 'react-helmet'
 import {useStaticQuery, graphql} from 'gatsby'
-
-function SEO({description, lang, meta, title}) {
-  const {site} = useStaticQuery(
+import ogbanner from '../../images/ogbanner.jpg'
+function SEO({description, meta, title}) {
+  const data = useStaticQuery(
     graphql`
       query {
+        sanitySiteSettings {
+          description
+          title
+          author {
+            name
+          }
+        }
         site {
           siteMetadata {
-            title
-            description
-            author
+            siteURL
           }
         }
       }
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = description || data.sanitySiteSettings.description
+  const metaTitle = title || data.sanitySiteSettings.title
+  const siteURL = data.site.siteMetadata.siteURL
+  const metaBanner = siteURL + ogbanner
 
   return (
     <Helmet
       htmlAttributes={{
-        lang
+        lang: 'en'
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={metaTitle}
+      titleTemplate={`%s | ${data.sanitySiteSettings.title}`}
       meta={[
         {
           name: `description`,
@@ -34,7 +42,7 @@ function SEO({description, lang, meta, title}) {
         },
         {
           property: `og:title`,
-          content: title
+          content: metaTitle
         },
         {
           property: `og:description`,
@@ -50,15 +58,23 @@ function SEO({description, lang, meta, title}) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author
+          content: data.sanitySiteSettings.author.name
         },
         {
           name: `twitter:title`,
-          content: title
+          content: metaTitle
         },
         {
           name: `twitter:description`,
           content: metaDescription
+        },
+        {
+          property: `twitter:image`,
+          content: metaBanner
+        },
+        {
+          property: `og:image`,
+          content: metaBanner
         }
       ].concat(meta)}
     />

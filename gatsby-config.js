@@ -3,8 +3,8 @@ module.exports = {
     title: `Flat Magazine`,
     description: `A Blog Theme for Gatsby. Using Sanity.io as backend.`,
     author: `@damnitrahul`,
-    siteURL: 'https://blog.damnitrahul.com/',
-    siteUrl: 'https://blog.damnitrahul.com/'
+    siteURL: 'https://blog.damnitrahul.com',
+    siteUrl: 'https://blog.damnitrahul.com'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

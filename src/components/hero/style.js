@@ -5,7 +5,7 @@ const FeaturedPostBox = styled.div`
   .gatsby-image-wrapper {
     border-radius: 8px;
     overflow: hidden;
-    height: 280px;
+    height: 220px;
     transition: box-shadow 350ms ease;
   }
   h2 {
@@ -15,10 +15,11 @@ const FeaturedPostBox = styled.div`
     }
   }
   p {
-    padding: 1rem 0;
+    padding: 1rem 0 0.5rem;
   }
   div {
     color: var(--text-muted);
+    padding-bottom: 1rem;
   }
   &:hover {
     .gatsby-image-wrapper {
@@ -32,6 +33,9 @@ const FeaturedPostBox = styled.div`
   }
 
   ${media.md} {
+    .gatsby-image-wrapper {
+      height: 280px;
+    }
     h2 {
       font-size: 1.7rem;
     }

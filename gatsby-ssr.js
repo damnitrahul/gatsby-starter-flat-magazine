@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const InitialTheme = () => {
   let codeToRunOnClient = `
@@ -21,10 +21,10 @@ const InitialTheme = () => {
   const colorMode = getInitialColorMode();
   const root = document.documentElement;
   root.setAttribute('data-theme', colorMode)
-})()`;
-  return <script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />;
-};
+})()`
+  return <script dangerouslySetInnerHTML={{__html: codeToRunOnClient}} />
+}
 
-export const onRenderBody = ({ setPreBodyComponents }) => {
-  setPreBodyComponents(<InitialTheme />);
-};
+export const onRenderBody = ({setPreBodyComponents}) => {
+  setPreBodyComponents(<InitialTheme />)
+}

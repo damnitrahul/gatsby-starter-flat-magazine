@@ -29,7 +29,7 @@ function Footer() {
               </svg>
             </a>
             <a
-              href="https://github.com/damnitrahul"
+              href="https://github.com/damnitrahul/gatsby-starter-flat-magazine"
               target="_blank"
               rel="noopener noreferrer"
             >

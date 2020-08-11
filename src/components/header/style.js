@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import {media} from '../../utils/breakpoints'
 const NavHeader = styled.header`
-  padding: 1rem 0;
+  padding: 1.5rem 0;
   position: sticky;
   top: 0;
   background-color: var(--white);
@@ -149,7 +149,7 @@ const SearchResults = styled.div`
 `
 
 const Logo = styled.div`
-  max-width: 175px;
+  max-width: 160px;
   img {
     width: 100%;
   }

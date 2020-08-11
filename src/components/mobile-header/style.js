@@ -75,7 +75,7 @@ const MobileNavWrapper = styled.nav`
   }
 `
 const MobileLogo = styled.div`
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   div {
     max-width: 150px;
     margin: 0 auto;

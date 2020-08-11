@@ -23,6 +23,7 @@ export const query = graphql`
     sanityPost(slug: {current: {eq: $slug}}) {
       title
       publishedAt(fromNow: true)
+      _rawExcerpt(resolveReferences: {maxDepth: 10})
       mainImage {
         alt
         caption
@@ -95,11 +96,11 @@ function BlogPost({data, pageContext}) {
   const postImg = post.mainImage.asset.fluid
   const imgAlt = post.mainImage.alt
   const {next, prev, nextTitle, prevTitle} = pageContext
-
   return (
     <Layout>
       <SEO
         title={title}
+        description={post._rawExcerpt}
         meta={[
           {
             property: 'twitter:image',

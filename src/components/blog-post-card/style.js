@@ -3,6 +3,7 @@ import {media} from '../../utils/breakpoints'
 
 const BlogPostBox = styled.div`
   margin: 2rem 0;
+
   div.post {
     h2 {
       font-size: 1.2rem;
@@ -11,7 +12,7 @@ const BlogPostBox = styled.div`
       }
     }
     .gatsby-image-wrapper {
-      height: 250px;
+      height: 220px;
       border-radius: 8px;
       overflow: hidden;
       margin-bottom: 1rem;
@@ -20,7 +21,7 @@ const BlogPostBox = styled.div`
       display: flex;
       flex-direction: column;
       p {
-        padding: 1rem 0;
+        padding: 1rem 0 0.5rem;
       }
       div {
         color: var(--text-muted);

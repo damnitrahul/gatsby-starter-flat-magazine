@@ -24,7 +24,7 @@ function Hero() {
                 }
               }
             }
-            _rawExcerpt(resolveReferences: {maxDepth: 10})
+            excerpt
             authors {
               author {
                 name
@@ -43,7 +43,7 @@ function Hero() {
         <FeaturedPost
           title={edge.node.title}
           slug={edge.node.slug.current}
-          excerpt={edge.node._rawExcerpt}
+          excerpt={edge.node.excerpt}
           author={edge.node.authors[0].author.name}
           date={edge.node.publishedAt}
           fluid={edge.node.mainImage.asset.fluid}

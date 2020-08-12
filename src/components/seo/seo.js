@@ -10,22 +10,21 @@ function SEO({description, meta, title}) {
         sanitySiteSettings {
           description
           title
+          siteURL
           author {
             name
-          }
-        }
-        site {
-          siteMetadata {
-            siteURL
           }
         }
       }
     `
   )
+  // Formatting SiteURL if it ends with '/'
+  const formatSiteURL = data.sanitySiteSettings.siteURL
+  const lastChar = formatSiteURL.slice(formatSiteURL.length - 1)
+  const siteURL = lastChar === '/' ? formatSiteURL.slice(0, -1) : formatSiteURL
 
   const metaDescription = description || data.sanitySiteSettings.description
   const metaTitle = title || data.sanitySiteSettings.title
-  const siteURL = data.site.siteMetadata.siteURL
   const metaBanner = siteURL + ogbanner
 
   return (
@@ -67,16 +66,19 @@ function SEO({description, meta, title}) {
         {
           name: `twitter:description`,
           content: metaDescription
-        },
-        {
-          property: `twitter:image`,
-          content: metaBanner
-        },
-        {
-          property: `og:image`,
-          content: metaBanner
         }
-      ].concat(meta)}
+      ]
+        .concat(meta)
+        .concat([
+          {
+            property: `twitter:image`,
+            content: metaBanner
+          },
+          {
+            property: `og:image`,
+            content: metaBanner
+          }
+        ])}
     />
   )
 }

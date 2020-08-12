@@ -28,7 +28,7 @@ export const query = graphql`
               }
             }
           }
-          _rawExcerpt(resolveReferences: {maxDepth: 10})
+          excerpt
           authors {
             author {
               name

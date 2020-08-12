@@ -9,7 +9,7 @@ function BlogPosts({data}) {
           title={edge.node.title}
           slug={edge.node.slug.current}
           image={edge.node.mainImage.asset.url}
-          excerpt={edge.node._rawExcerpt}
+          excerpt={edge.node.excerpt}
           author={edge.node.authors[0].author.name}
           date={edge.node.publishedAt}
           fluid={edge.node.mainImage.asset.fluid}

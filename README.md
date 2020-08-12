@@ -7,7 +7,7 @@
  A flat design Gatsby Starter powered by Sanity.
 </h4>
 
-## Features
+## ⚡ Features
 
 - [Sanity.io](https://www.sanity.io/) integration
 - Styled with [styled-components](https://styled-components.com/)
@@ -19,7 +19,7 @@
 - Automatic [XML Sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap) and [Robots.txt ](https://www.gatsbyjs.org/packages/gatsby-plugin-robots-txt) genration
 - Responsive design
 
-## Quick Start
+## 🚀 Quick Start
 
 #### Create a Gatsby site
 
@@ -38,13 +38,13 @@ Supply your sanity.io tokens to `gatsby-source-sanity` options in `gatsby-config
       options: {
         projectId: [YOUR_SANITY_PROJECT_ID],
         dataset: [YOUR_SANITY_PROJECT_DATASET],
-        token: [YOUR_SANITY_MY_SANITY_TOKEN] // Optional
+        token: [YOUR_SANITY_TOKEN]
     }
 ```
 
 ### Clone the customised Sanity Studio for Flat Magazine [HERE](https://github.com/damnitrahul/sanity-studio-flat-magazine)
 
-Setup the Studio with your credential and Start publishing content
+Setup the Studio with your credential, Deploy GraphQL API and Start publishing your content
 
 #### Start Developing
 
@@ -63,7 +63,11 @@ Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is
 
 Open the `blog` directory in your code editor of choice and edit `src/templates/index-template.js`. Save your changes and the browser will update in real time!
 
-## Deploy with Netlify
+## 💫 Deploy with Netlify
+
+### Current deployment status
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2959a2f5-d392-4b58-88c5-b341f57eed00/deploy-status)](https://app.netlify.com/sites/flat-magazine/deploys)
 
 [Netlify](https://netlify.com) CMS can run in any frontend web environment, but the quickest way to try it out is by running it on a pre-configured starter site with Netlify. Use the button below to build and deploy your own copy of the repository:
 

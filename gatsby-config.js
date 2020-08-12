@@ -55,7 +55,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-page-progress',
       options: {
-        includePaths: [{regex: '^/blog'}],
+        includePaths: [{regex: '^/blog/'}],
         height: 3,
         prependToBody: false,
         color: `#fd413c`,
@@ -65,6 +65,5 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-robots-txt'
-    // 'gatsby-source-sanity-transform-images' // Plugin to download images locally on server  to save sanity bandwidth
   ]
 }

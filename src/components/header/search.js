@@ -65,18 +65,20 @@ function Search() {
           onBlur={handleSearchInput}
         />
       </label>
-      <SearchResults active={state.isActive}>
-        {state.results.map(page => (
-          <Link
-            className="navbar-item"
-            key={page.id}
-            to={`blog/${page.slug}`}
-            onClick={handleSearchInput}
-          >
-            <span>{page.title}</span>
-          </Link>
-        ))}
-      </SearchResults>
+      {state.results.length > 0 && (
+        <SearchResults active={state.isActive}>
+          {state.results.map(page => (
+            <Link
+              className="navbar-item"
+              key={page.id}
+              to={`/blog/${page.slug}`}
+              onClick={handleSearchInput}
+            >
+              <span>{page.title}</span>
+            </Link>
+          ))}
+        </SearchResults>
+      )}
     </SearchBox>
   )
 }

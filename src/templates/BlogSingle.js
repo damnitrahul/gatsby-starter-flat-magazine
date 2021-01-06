@@ -6,18 +6,6 @@ import urlBuilder from '@sanity/image-url'
 export const query = graphql`
   query($slug: String!) {
     sanityPost(slug: {current: {eq: $slug}}) {
-      body {
-        _key
-        _type
-        list
-        sanityChildren {
-          _key
-          _type
-          marks
-          text
-        }
-        style
-      }
       title
       _rawBody(resolveReferences: {maxDepth: 10})
     }
@@ -25,7 +13,10 @@ export const query = graphql`
 `
 
 const urlFor = source =>
-  urlBuilder({projectId: 'rhqgrccr', dataset: 'production'}).image(source)
+  urlBuilder({
+    projectId: process.env.GATSBY_PROJECT_ID,
+    dataset: process.env.GATSBY_PROJECT_DATASET
+  }).image(source)
 
 const serializers = {
   types: {

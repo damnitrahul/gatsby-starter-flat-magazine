@@ -129,6 +129,7 @@ const SearchResults = styled.div`
   border-radius: 0 0 5px 5px;
   max-height: 300px;
   overflow-y: auto;
+  border: 1px solid var(--text-light);
   box-shadow: 0 2px 6px var(--highlight-shadow);
   a {
     padding: 0.5rem 1rem;
@@ -139,8 +140,10 @@ const SearchResults = styled.div`
     justify-content: flex-start;
     align-items: center;
     span {
-      /* margin: auto; */
       display: block;
+    }
+    &:hover {
+      color: var(--orange);
     }
     &:last-child {
       border-bottom: none;

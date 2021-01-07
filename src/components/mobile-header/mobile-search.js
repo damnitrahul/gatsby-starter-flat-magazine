@@ -80,7 +80,7 @@ function MobileSearch() {
               <Link
                 className="navbar-item"
                 key={page.id}
-                to={`blog/${page.slug}`}
+                to={`/blog/${page.slug}`}
                 onClick={() => setOpen(false)}
               >
                 <span>{page.title}</span>
